@@ -16,7 +16,6 @@ const authenticateBodySchema = z.object({
   password: z.string(),
 })
 
-
 type AuthenticateBodySchema = z.infer<typeof authenticateBodySchema>
 
 @Controller('/sessions')
@@ -30,7 +29,6 @@ export class AuthenticateController {
   @UsePipes(new ZodValidationPipe(authenticateBodySchema))
   async handle(@Body() body: AuthenticateBodySchema) {
     const { email, password } = body
-
 
     const user = await this.prisma.user.findUnique({
       where: {

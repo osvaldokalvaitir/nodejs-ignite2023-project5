@@ -37,7 +37,7 @@ beforeAll(async () => {
     { connectionString: databaseURL },
     { schema: schemaId },
   )
-  
+
   prisma = new PrismaClient({
     adapter,
   })
