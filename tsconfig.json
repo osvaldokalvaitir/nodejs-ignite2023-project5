@@ -24,7 +24,8 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@/*": ["src/*"],
-      "test/*": ["test/*"]
+      "test/*": ["test/*"],
+      "@prisma/client": ["./generated/prisma/client"]
     },
     "types": [
       "vitest/globals"
