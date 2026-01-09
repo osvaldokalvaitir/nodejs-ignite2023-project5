@@ -10,9 +10,11 @@ import { PrismaAnswersRepository } from './prisma/repositories/prisma-answers-re
 import { PrismaAnswerCommentsRepository } from './prisma/repositories/prisma-answer-comments-repository'
 import { PrismaAnswerAttachmentsRepository } from './prisma/repositories/prisma-answer-attachments-repository'
 import { PrismaStudentsRepository } from './prisma/repositories/prisma-students-repository'
+import { EnvService } from '../env/env.service'
 
 @Module({
   providers: [
+    EnvService,
     PrismaService,
    {
       provide: QuestionsRepository,
