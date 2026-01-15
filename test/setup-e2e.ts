@@ -1,6 +1,5 @@
 import 'dotenv/config'
 
-import { PrismaPg } from '@prisma/adapter-pg'
 import { PrismaClient } from '@prisma/client'
 import { randomUUID } from 'node:crypto'
 import { execSync } from 'node:child_process'
@@ -24,7 +23,6 @@ beforeAll(async () => {
   const databaseURL = generateUniqueDatabaseURL(schemaId)
 
   process.env.DATABASE_URL = databaseURL
-  process.env.DATABASE_SCHEMA = schemaId
 
   execSync(`pnpm prisma migrate deploy`, {
     env: {
@@ -33,14 +31,7 @@ beforeAll(async () => {
     },
   })
 
-  const adapter = new PrismaPg(
-    { connectionString: databaseURL },
-    { schema: schemaId },
-  )
-
-  prisma = new PrismaClient({
-    adapter,
-  })
+  prisma = new PrismaClient()
 })
 
 afterAll(async () => {
