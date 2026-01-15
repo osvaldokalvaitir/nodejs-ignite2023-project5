@@ -1,5 +1,5 @@
 import { type Either, right } from '@/core/either'
-import type { AnswersRepository } from '../repositories//answers-repository'
+import { AnswersRepository } from '../repositories//answers-repository'
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
 
 interface FetchQuestionAnswersUseCaseRequest {

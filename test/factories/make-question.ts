@@ -6,7 +6,7 @@ import {
   Question,
   type QuestionProps,
 } from '@/domain/forum/enterprise/entities/question'
-import type { PrismaService } from '@/infra/database/prisma/prisma.service'
+import { PrismaService } from '@/infra/database/prisma/prisma.service'
 import { PrismaQuestionMapper } from '@/infra/database/prisma/mappers/prisma-question-mapper'
 
 export function makeQuestion(
