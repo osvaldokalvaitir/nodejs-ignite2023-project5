@@ -6,7 +6,7 @@ import {
   Param,
 } from '@nestjs/common'
 import { CurrentUser } from '@/infra/auth/current-user-decorator'
-import * as JwtStrategy from '@/infra/auth/jwt.strategy'
+import type { UserPayload } from '@/infra/auth/jwt.strategy'
 import { DeleteQuestionUseCase } from '@/domain/forum/application/use-cases/delete-question'
 
 @Controller('/questions/:id')
@@ -16,7 +16,7 @@ export class DeleteQuestionController {
   @Delete()
   @HttpCode(204)
   async handle(
-    @CurrentUser() user: JwtStrategy.UserPayload,
+    @CurrentUser() user: UserPayload,
     @Param('id') questionId: string,
   ) {
     const userId = user.sub

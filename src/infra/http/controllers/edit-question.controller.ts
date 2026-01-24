@@ -7,7 +7,7 @@ import {
   Put,
 } from '@nestjs/common'
 import { CurrentUser } from '@/infra/auth/current-user-decorator'
-import * as JwtStrategy from '@/infra/auth/jwt.strategy'
+import type { UserPayload } from '@/infra/auth/jwt.strategy'
 import { ZodValidationPipe } from '@/infra/http/pipes/zod-validation-pipe'
 import { z } from 'zod'
 import { EditQuestionUseCase } from '@/domain/forum/application/use-cases/edit-question'
@@ -29,7 +29,7 @@ export class EditQuestionController {
   @HttpCode(204)
   async handle(
     @Body(bodyValidationPipe) body: EditQuestionBodySchema,
-    @CurrentUser() user: JwtStrategy.UserPayload,
+    @CurrentUser() user: UserPayload,
     @Param('id') questionId: string,
   ) {
     const { title, content } = body

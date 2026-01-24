@@ -6,7 +6,7 @@ import {
   Post,
 } from '@nestjs/common'
 import { CurrentUser } from '@/infra/auth/current-user-decorator'
-import * as JwtStrategy from '@/infra/auth/jwt.strategy'
+import type { UserPayload } from '@/infra/auth/jwt.strategy'
 import { ZodValidationPipe } from '@/infra/http/pipes/zod-validation-pipe'
 import { z } from 'zod'
 import { AnswerQuestionUseCase } from '@/domain/forum/application/use-cases/answer-question'
@@ -26,7 +26,7 @@ export class AnswerQuestionController {
   @Post()
   async handle(
     @Body(bodyValidationPipe) body: AnswerQuestionBodySchema,
-    @CurrentUser() user: JwtStrategy.UserPayload,
+    @CurrentUser() user: UserPayload,
     @Param('questionId') questionId: string,
   ) {
     const { content } = body
