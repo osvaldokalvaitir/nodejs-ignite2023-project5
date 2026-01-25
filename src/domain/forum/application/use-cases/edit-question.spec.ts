@@ -17,6 +17,7 @@ describe('Edit Question', () => {
     inMemoryQuestionsRepository = new InMemoryQuestionsRepository(
       inMemoryQuestionAttachmentsRepository,
     )
+
     sut = new EditQuestionUseCase(
       inMemoryQuestionsRepository,
       inMemoryQuestionAttachmentsRepository,
@@ -58,10 +59,10 @@ describe('Edit Question', () => {
     })
 
     expect(
-      inMemoryQuestionsRepository.items[0]?.attachments.currentItems,
+      inMemoryQuestionsRepository.items[0].attachments.currentItems,
     ).toHaveLength(2)
     expect(
-      inMemoryQuestionsRepository.items[0]?.attachments.currentItems,
+      inMemoryQuestionsRepository.items[0].attachments.currentItems,
     ).toEqual([
       expect.objectContaining({ attachmentId: new UniqueEntityID('1') }),
       expect.objectContaining({ attachmentId: new UniqueEntityID('3') }),

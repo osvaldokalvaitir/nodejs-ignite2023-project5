@@ -23,6 +23,7 @@ describe('Edit Answer', () => {
       inMemoryAnswerAttachmentsRepository,
     )
   })
+
   it('should be able to edit a answer', async () => {
     const newAnswer = makeAnswer(
       {
@@ -56,14 +57,14 @@ describe('Edit Answer', () => {
     })
 
     expect(
-      inMemoryAnswersRepository.items[0]?.attachments.currentItems,
+      inMemoryAnswersRepository.items[0].attachments.currentItems,
     ).toHaveLength(2)
-    expect(
-      inMemoryAnswersRepository.items[0]?.attachments.currentItems,
-    ).toEqual([
-      expect.objectContaining({ attachmentId: new UniqueEntityID('1') }),
-      expect.objectContaining({ attachmentId: new UniqueEntityID('3') }),
-    ])
+    expect(inMemoryAnswersRepository.items[0].attachments.currentItems).toEqual(
+      [
+        expect.objectContaining({ attachmentId: new UniqueEntityID('1') }),
+        expect.objectContaining({ attachmentId: new UniqueEntityID('3') }),
+      ],
+    )
   })
 
   it('should not be able to edit a answer from another user', async () => {
