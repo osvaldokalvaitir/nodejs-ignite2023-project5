@@ -17,6 +17,7 @@ describe('Delete Answer', () => {
     inMemoryAnswersRepository = new InMemoryAnswersRepository(
       inMemoryAnswerAttachmentsRepository,
     )
+
     sut = new DeleteAnswerUseCase(inMemoryAnswersRepository)
   })
 
@@ -47,7 +48,7 @@ describe('Delete Answer', () => {
     })
 
     expect(inMemoryAnswersRepository.items).toHaveLength(0)
-
+    
     expect(inMemoryAnswerAttachmentsRepository.items).toHaveLength(0)
   })
 
