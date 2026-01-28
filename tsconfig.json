@@ -27,7 +27,8 @@
       "test/*": ["test/*"]
     },
     "types": [
-      "vitest/globals"
+      "vitest/globals",
+      "multer"
     ]
   }
 }
