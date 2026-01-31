@@ -1,8 +1,13 @@
-import 'dotenv/config'
+import { config } from 'dotenv'
 
 import { PrismaClient } from '@prisma/client'
 import { randomUUID } from 'node:crypto'
 import { execSync } from 'node:child_process'
+
+config({ path: '.env', override: true })
+config({ path: '.env.test', override: true })
+
+const prisma = new PrismaClient()
 
 function generateUniqueDatabaseURL(schemaId: string) {
   if (!process.env.DATABASE_URL) {
@@ -17,21 +22,13 @@ function generateUniqueDatabaseURL(schemaId: string) {
 }
 
 const schemaId = randomUUID()
-let prisma: PrismaClient
 
 beforeAll(async () => {
   const databaseURL = generateUniqueDatabaseURL(schemaId)
 
   process.env.DATABASE_URL = databaseURL
 
-  execSync(`pnpm prisma migrate deploy`, {
-    env: {
-      ...process.env,
-      DATABASE_URL: databaseURL,
-    },
-  })
-
-  prisma = new PrismaClient()
+  execSync('pnpm prisma migrate deploy')
 })
 
 afterAll(async () => {
