@@ -12,8 +12,9 @@ let sut: FetchQuestionCommentsUseCase
 describe('Fetch Question Comments', () => {
   beforeEach(() => {
     inMemoryStudentsRepository = new InMemoryStudentsRepository()
-    inMemoryQuestionCommentsRepository =
-      new InMemoryQuestionCommentsRepository(inMemoryStudentsRepository)
+    inMemoryQuestionCommentsRepository = new InMemoryQuestionCommentsRepository(
+      inMemoryStudentsRepository,
+    )
     sut = new FetchQuestionCommentsUseCase(inMemoryQuestionCommentsRepository)
   })
 
@@ -49,20 +50,22 @@ describe('Fetch Question Comments', () => {
     })
 
     expect(result.value?.comments).toHaveLength(3)
-    expect(result.value?.comments).toEqual(expect.arrayContaining([
-      expect.objectContaining({
-        author: 'John Doe',
-        commentId: comment1.id,
-      }),
-      expect.objectContaining({
-        author: 'John Doe',
-        commentId: comment2.id,
-      }),
-      expect.objectContaining({
-        author: 'John Doe',
-        commentId: comment3.id,
-      }),
-    ]))
+    expect(result.value?.comments).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          author: 'John Doe',
+          commentId: comment1.id,
+        }),
+        expect.objectContaining({
+          author: 'John Doe',
+          commentId: comment2.id,
+        }),
+        expect.objectContaining({
+          author: 'John Doe',
+          commentId: comment3.id,
+        }),
+      ]),
+    )
   })
 
   it('should be able to fetch paginated question comments', async () => {

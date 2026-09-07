@@ -26,7 +26,6 @@ export class Question extends AggregateRoot<QuestionProps> {
     return this.props.bestAnswerId
   }
 
-
   set bestAnswerId(bestAnswerId: UniqueEntityID | undefined | null) {
     if (bestAnswerId === undefined || bestAnswerId === null) {
       return

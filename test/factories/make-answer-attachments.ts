@@ -4,7 +4,7 @@ import {
   AnswerAttachment,
   type AnswerAttachmentProps,
 } from '@/domain/forum/enterprise/entities/answer-attachment'
-import type { PrismaService } from '@/infra/database/prisma/prisma.service'
+import { PrismaService } from '@/infra/database/prisma/prisma.service'
 import { Injectable } from '@nestjs/common'
 
 export function makeAnswerAttachment(
