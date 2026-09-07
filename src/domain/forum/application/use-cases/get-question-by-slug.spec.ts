@@ -31,7 +31,7 @@ describe('Get Question By Slug', () => {
     sut = new GetQuestionBySlugUseCase(inMemoryQuestionsRepository)
   })
 
-    it('should be able to get a question by slug', async () => {
+  it('should be able to get a question by slug', async () => {
     const student = makeStudent({ name: 'John Doe' })
 
     await inMemoryStudentsRepository.create(student)

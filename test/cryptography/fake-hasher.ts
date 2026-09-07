@@ -1,4 +1,3 @@
-
 import { HashComparer } from '@/domain/forum/application/cryptography/hash-comparer'
 import { HashGenerator } from '@/domain/forum/application/cryptography/hash-generator'
 

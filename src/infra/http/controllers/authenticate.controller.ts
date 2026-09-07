@@ -1,10 +1,10 @@
 import {
-  BadRequestException, 
-  Body, 
-  Controller, 
-  Post, 
-  UnauthorizedException, 
-  UsePipes
+  BadRequestException,
+  Body,
+  Controller,
+  Post,
+  UnauthorizedException,
+  UsePipes,
 } from '@nestjs/common'
 import { z } from 'zod'
 import { ZodValidationPipe } from '@/infra/http/pipes/zod-validation-pipe'
@@ -33,7 +33,6 @@ export class AuthenticateController {
       email,
       password,
     })
-
 
     if (result.isLeft()) {
       const error = result.value

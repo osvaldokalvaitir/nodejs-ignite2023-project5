@@ -27,7 +27,7 @@ import { EnvService } from '../env/env.service'
     }),
   ],
   providers: [
-    EnvService, 
+    EnvService,
     JwtStrategy,
     {
       provide: APP_GUARD,
