@@ -24,12 +24,12 @@ function generateUniqueDatabaseURL(schemaId: string) {
 
 const schemaId = randomUUID()
 
+DomainEvents.shouldRun = false
+
 beforeAll(async () => {
   const databaseURL = generateUniqueDatabaseURL(schemaId)
 
   process.env.DATABASE_URL = databaseURL
-
-  DomainEvents.shouldRun = false
 
   execSync('pnpm prisma migrate deploy')
 })
