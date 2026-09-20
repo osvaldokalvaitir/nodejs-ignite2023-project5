@@ -42,6 +42,15 @@ cd nodejs-ignite2023-project5
 # Install deps with pnpm
 pnpm install
 
+# Create the environment file and fill in the variables
+cp .env.example .env
+
+# Start the containers (PostgreSQL and Redis) with Docker
+docker compose up -d
+
+# Run the database migrations with Prisma
+pnpm prisma migrate deploy
+
 # Launch the app with pnpm
 pnpm run start
 ```
