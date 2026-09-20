@@ -39,11 +39,11 @@ git clone https://github.com/osvaldokalvaitir/nodejs-ignite2023-project5
 # Entry in folder
 cd nodejs-ignite2023-project5
 
-# Install deps with npm
-npm install
+# Install deps with pnpm
+pnpm install
 
-# Launch the app with npm
-npm run dev
+# Launch the app with pnpm
+pnpm run start
 ```
 
 Click to learn more about the tools used:  [Docker](https://github.com/osvaldokalvaitir/awesome/blob/main/src/containers/docker.md), [Docker Image postgres](https://github.com/osvaldokalvaitir/awesome/blob/main/src/containers/docker/images/postgres.md), [Docker Image redis](https://github.com/osvaldokalvaitir/awesome/blob/main/src/containers/docker/images/redis.md), [Cloudflare](https://github.com/osvaldokalvaitir/awesome/blob/main/src/cdns/cloudflare.md).
